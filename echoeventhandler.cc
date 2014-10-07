@@ -11,8 +11,6 @@ int EchoEventHandler::handle_input(ACE_HANDLE handle)
 	int nbytes = read(handle, buf, sizeof(buf));
 	if (nbytes < 0)
 		return -1;
-	else if (nbytes == 0)
-		handle_close();
 
 	if (write(handle, buf, nbytes) != nbytes)
 		return -1;

@@ -9,7 +9,7 @@ int EchoEventHandler::handle_input(ACE_HANDLE handle)
 {
 	int buf[1024];
 	int nbytes = read(handle, buf, sizeof(buf));
-	if (nbytes < 0)
+	if (nbytes <= 0)
 		return -1;
 
 	if (write(handle, buf, nbytes) != nbytes)
